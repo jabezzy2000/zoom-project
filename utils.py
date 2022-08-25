@@ -9,5 +9,4 @@ def format_time(time):
     return list(map(int, time_list))
 
 def given_datetime(given_date, given_time):
-    # returning the form : YY, MM, DD, HH, MM
     return datetime.datetime(given_date[2], given_date[1], given_date[0], given_time[0], given_time[1], given_time[2])
