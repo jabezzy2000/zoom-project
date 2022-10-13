@@ -5,9 +5,9 @@ import time
 import click
 import utils
 import datetime
-zoom_meetings_for_today = []
-status = True
-count =1
+zoom_meetings_for_today = [] #this is a list that keeps track of all meetings for a day
+status = True #boolean value
+count =1 #value to keep track of nth class of the day
 print("Enter number of classes you have today: ")
 num_of_classes = int(input())
 for i in range(num_of_classes):
@@ -40,16 +40,14 @@ def join_zoom_meeting(zoom_link,meeting_date,meeting_time):
 
     #finding the time between the time at present vs the time of the meeting
     current_time = datetime.datetime.now().replace(microsecond=0)
-    # print("Current time is " + str(current_time))
-    # print("Meeting time is " + str(formatted_required_datetime))
     wait_time_sec = (formatted_required_datetime - datetime.datetime.now().replace(microsecond=0)).total_seconds()
     print(f"Your ZOOM meeting starts in " + str(wait_time_sec/60) + " min")
-    time.sleep(wait_time_sec)
+    time.sleep(wait_time_sec) #puts program to sleep for wait_time seconds
 
     webbrowser.get(using='Chrome').open(zoom_link, new=2) #this opens zoom link in a new chrome window
     
-#join_zoom_meeting("https://us05web.zoom.us/j/6721595024?pwd=c1B5VWV5RXI4YXFWNkRYdGNCWkV2QT09","24-08-2022","23-10-00")
-for zoom_meetings in zoom_meetings_for_today:
+
+for zoom_meetings in zoom_meetings_for_today: #iterates through the list of meetings for the day
     link = zoom_meetings[0]
     zoom_date = zoom_meetings[1]
     zoom_time = zoom_meetings[2]
