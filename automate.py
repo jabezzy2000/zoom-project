@@ -52,3 +52,5 @@ for zoom_meetings in zoom_meetings_for_today: #iterates through the list of meet
     zoom_date = zoom_meetings[1]
     zoom_time = zoom_meetings[2]
     join_zoom_meeting(link,zoom_date,zoom_time)
+
+#random commit do demo pr
